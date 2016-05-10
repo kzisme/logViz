@@ -13,4 +13,11 @@ with open('usernames.txt', 'a') as file:
             for user in usernames:
                 file.write("%s\n" %usernames);
 
-         
+count = {}
+for w in open('usernames.txt').read().split():
+    if w in count:
+        count[w] += 1
+    else:
+        count[w] = 1
+for word, times in count.items():
+    print "%s was found %d times" % (word, times)
