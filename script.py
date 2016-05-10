@@ -11,8 +11,7 @@ with open('usernames.txt', 'a') as file:
                 inner, sep, suffix = inner.rpartition('>')
             usernames = inner.partition('>')[0];
             for user in usernames:
-                file.write("%s\n" %usernames);
-
+                file.write("\n".join(usernames));
 count = {}
 for w in open('usernames.txt').read().split():
     if w in count:
