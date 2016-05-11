@@ -14,23 +14,15 @@
   </head>
   <body>
     <script type="text/javascript">
+var data;
+    d3.json("/data.json", function(error, json) {
+        if (error) return console.warn(error);
+        data = json;
+        visualizeit();
 
-$.ajax({
-    url: 'data.json',
-    type: 'GET',
-    processData: false,
-    contentType: false,
-    cache: false,
-    dataType: 'json',
-    data: formData,
-    success: function(data) {
-        console.log('Success!', data);
-    },
-    error: function(e) {
-        console.log('Error!', e);
-    }
-});
-	var de = data;
+
+
+    //var de = data;
 
     var mySVG = d3.select("body")
       .append("svg")
@@ -80,6 +72,8 @@ $.ajax({
       .attr('x',function(d,i) {return (i * 22) + 100;})
       .attr('y',function(d,i) {return 400 - heightScale(d.count);})
       .style('fill','lightblue'); 
+    )};
+    
 </script>
 
   </body>
