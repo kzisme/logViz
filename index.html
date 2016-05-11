@@ -2,9 +2,7 @@
 <head>
   <script type="text/javascript" src="d3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script type="text/javascript" src="data.json"></script>
-  <script type="text/javascript" src="load.js"></script>
-
+  <script type="data/json" src="data.json"</script>
 
   <style>
     .fig {
@@ -17,25 +15,8 @@
   <body>
     <script type="text/javascript">
 
-
-
-
-
-
-$.ajax({
-	url:'http://localhost:8000/Users/kevinzita/projects/logViz/data.json', 
-	dataType: 'json',
-	success: function(data){
-				console.log("IT WORKED!");
-				},
-				error: function(xhr) {
-					console.log("Error: " + xhr.statusText);
-				}
-
-
-
-
-});
+$.getJSON("data.json", function(data){})
+console.log(data);
 
 	var de = data;
 
@@ -87,7 +68,7 @@ $.ajax({
       .attr('x',function(d,i) {return (i * 22) + 100;})
       .attr('y',function(d,i) {return 400 - heightScale(d.count);})
       .style('fill','lightblue'); 
-
+    
 </script>
 
   </body>
