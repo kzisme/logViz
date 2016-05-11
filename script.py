@@ -32,5 +32,4 @@ for line in fileinput.input():
 #print(json.dumps(count))
 with open('data.json', 'w') as outfile:
     json.dump(count, outfile,indent = 4)
-    placeid = count['kzisme']
-
+    print(json.dumps(list(count.items())))
