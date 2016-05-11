@@ -1,0 +1,33 @@
+<head>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+</head>
+
+<body>
+  
+  <script>
+    d3.json(data.json, function(data) {  
+           var canvas = d3.select("body").append("svg")
+               .attr("width", 500)
+               .attr("height", 500)
+            
+            canvas.selectAll("rect")
+                .data(data)
+                .enter()
+                    .append("rect")
+                    .attr("width", function (d) { return d.age })
+                    .attr("height", 50)
+                    .attr("y", function...)
+                    .attr("fill", blue)
+
+            canvas.selectAll("text")
+                .data(data)
+                .enter()
+                    .append("text")
+                    .attr("fill", "white")
+                    .attr("y", function (d, i) { return i })
+                    .text(function (d) { return d.name }
+            
+            })
+  </script>
+</body>
