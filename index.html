@@ -2,8 +2,8 @@
 <head>
   <script type="text/javascript" src="d3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script type="data/json" src="data.json"</script>
-
+  <script type="data/json" src="data.json"></script> 
+  
 <style>
 
 #chart rect{
@@ -35,7 +35,7 @@ body{
   </head>
 <body>
 
-<script type="text/javascript" src="d3.min.js">
+<script>
 var margin ={top:20, right:30, bottom:30, left:40},
     width=960-margin.left - margin.right, 
     height=500-margin.top-margin.bottom;
@@ -57,8 +57,9 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
               .scale(y)
               .orient("left");
-
-d3.json("/data.json", function(error, data){
+var data;
+d3.json("http://localhost:8000/data.json", function(error, data){
+  if (error) return console.warn(error);
   x.domain(data.map(function(d){ return d.name}));
   y.domain([0, d3.max(data, function(d){return d.val})]);
   
