@@ -33,5 +33,4 @@ for line in fileinput.input():
 with open('data.json', 'w') as outfile:
     #json.dump(count, outfile,indent = 4)
     #print(json.dumps(list(count.items())))
-    print json.dump([dict(val=val, name=name) for (name, val) in
-        count.items()],outfile)
+    print json.dump([dict(val=val, name=name) for (name, val) in count.items()],outfile)
