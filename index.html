@@ -76,7 +76,7 @@ d3.json("http://localhost:8000/data.json", function(error, data){
         return y(d.val); 
       })
       .attr("x", function(d,i){
-        return (margin.left / 2);
+        return ((margin.left * 3) - (width / 2));
       })
       .attr("height", function(d) { 
         return height - y(d.val); 
