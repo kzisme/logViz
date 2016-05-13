@@ -2,40 +2,43 @@
 <head>
   <script type="text/javascript" src="d3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script type="data/json" src="data.json"></script> 
-  
+  <script type="data/json" src="data.json"></script>
+
 <style>
 
-#chart rect{
+#chart rect {
   fill: #4aaeea;
 }
-
-#chart text{
+#chart text {
   fill: white;
   font: 10px sans-serif;
-  text-anchor: end; 
+  text-anchor: end;
 }
-
-.axis text{
+.axis text {
   font: 10px sans-serif;
 }
-
-.axis path, .axis line{
+.axis path,
+.axis line {
   fill: none;
-  stroke : #fff;
+  stroke: #fff;
   shape-rendering: crispEdges;
 }
-
-body{
+body {
   background: #1a1a1a;
-  color : #eaeaea;
-  padding : 5px;
+  color: #eaeaea;
+  padding: 5px;
 }
   </style>
   </head>
 <body>
     <div id="chart"</div>
 <script>
+
+
+
+d3.json("http://localhost:8000/data.json", function(error, data){
+  if (error) return console.warn(error);
+var data;
 
 var margin = {
     top: 20,
@@ -64,9 +67,6 @@ var yAxis = d3.svg.axis()
   .scale(y)
   .orient("left");
 
-d3.json("http://localhost:8000/data.json", function(error, data){
-  if (error) return console.warn(error);
-var data;
 x.domain(data.map(function(d) {
   return d.name
 }));
@@ -115,7 +115,12 @@ chart.append("g")
   .attr("y", 6)
   .attr("dy", ".71em")
   .style("text-anchor", "end")
-  .text("Frequency")
+  .text("Frequency");
+
+function type(d) {
+  d.name = +d.name; // coerce to number
+  return d;
+}
 
 });
 </script>
