@@ -70,13 +70,13 @@ d3.json("http://localhost:8000/data.json", function(error, data){
                     .attr("transform", function(d, i){
                       return "translate("+x(d.name)+", 0)";
                     });
-  
+ console.log(margin.left); 
   bar.append("rect")
       .attr("y", function(d) { 
         return y(d.val); 
       })
       .attr("x", function(d,i){
-        return (margin.left * 2.2);
+        return x(margin.left + 2);
       })
       .attr("height", function(d) { 
         return height - y(d.val); 
