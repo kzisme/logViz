@@ -103,7 +103,8 @@ bar.append("text")
 
 chart.append("g")
   .attr("class", "x axis")
-  .attr("transform", "translateX(10px)")
+  //.attr("transform", "translateX(10px)"+ ",0)")
+  .attr("transform", "translate(42," + height + ")")
   .call(xAxis);
 
 chart.append("g")
